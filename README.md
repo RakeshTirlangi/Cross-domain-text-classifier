@@ -74,11 +74,22 @@ Evaluation is performed on the Yelp test set.
 
 ## Results
 
+### Quantitative Comparison
+
+| Model                                   | Target Test Accuracy |
+|------------------------------------------|----------------------|
+| Traditional (Target-Only Supervised)    | **0.8954**           |
+| Patent-Style (Source + Target Unlabeled)| **0.8068**           |
+
+**Accuracy Gap:** -0.0886  
+
+The domain-adaptation approach achieves 80.68% accuracy without using labeled target data during training, compared to 89.54% when fully supervised.
+
+---
+
 ### Accuracy Comparison
 
 ![Accuracy Comparison](figures/accuracy_bar.png)
-
-The patent-style architecture achieves competitive performance relative to fully supervised target training.
 
 ---
 
@@ -97,23 +108,21 @@ The patent-style architecture achieves competitive performance relative to fully
 ### Supervised Training Curve vs Patent Performance
 
 This plot shows how supervised performance improves as more labeled target samples are used.  
-The horizontal line indicates the patent-style performance.
+The horizontal line indicates the patent-style performance (0.8068).
 
 ![Training Curve Comparison](figures/training_curve.png)
 
-This illustrates how close the domain-adaptation approach comes to fully supervised training.
-
 ---
 
-## Key Insight
+## Interpretation
 
-The embedding-enhanced domain adaptation framework achieves near-supervised performance without directly training on labeled target data.
+While the fully supervised model achieves higher accuracy, the patent-style framework demonstrates that:
 
-This demonstrates the effectiveness of:
+- Competitive performance can be obtained  
+- Without directly training on labeled target data  
+- Using cross-domain consistent features and iterative pseudo-labeling  
 
-- Cross-domain consistent feature selection  
-- Confidence-based pseudo-labeling  
-- Embedding-based semantic polarity alignment  
+This highlights the practical value of domain adaptation when labeled target data is limited or unavailable.
 
 ---
 
